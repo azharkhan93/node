@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // synchoruns programing
+        // function myFun(){
+        //     console.log("start inside function")
+        // }
+        // console.log("start")
+        // myFun()
+        // console.log("end")
+        // async programing
+        // console.log("start")
+        // setTimeout(()=>{
+        // console.log("inside timeout function")
+        // },2000)
+        // console.log("end")
+
+        // cLLBck bCK FUnction can be synchronus
+
+        // console.log("start")
+        // const roll = [1, 2, 3, 4, 5, 6, 7, 8, 100]
+        // roll.forEach(r => {
+        // console.log(r)
+        // })
+        // console.log("end")
+
+        // callback function
+        // console.log("start")
+
+        // function getName(name, callback) {
+        // setTimeout(() => {
+        // console.log("inside timeout function")
+        // callback(name);
+        // }, 2000);
+
+
+        // }
+        // const nm = getName('aamir', (nm) => { console.log(nm) })
+        // console.log("end")
+
+        // callback hell
+        // console.log("start")
+
+        // function getName(name, callback) {
+        // setTimeout(() => {
+        // console.log("inside timeout function")
+        // callback(name);
+        // }, 3000);
+
+
+        // }
+        // function getHobbies(name,callback){
+        // setTimeout(() => {
+        // console.log("inside  hoobies timeout function")
+        // callback(['cricket','basketball', 'tennis']);
+        // }, 2000);
+        // }
+        // const nm = getName('aamir', (nm) => { console.log(nm) });
+        // getHobbies(nm, (hobby) => { console.log(hobby) })
+        // console.log("end")
+
+        // basic promise with cath error handling
+        //  const promiseobj1 = new Promise((resolve,reject)=>{
+        // let req = true;
+        // if (req==true)
+        //  let req = true;
+        //  if (req==true){
+        //  resolve([1,2,3,4,6])
+        //  } else {
+        //  reject("tequest rejected")
+        //  }
+
+        //  }).then(
+        //  (value) => {console.log(value); }
+        //  (error) => {console.log(value)},
+        //  ).catch((error) =>
+        //  {console.log(error);
+        // }).finally(() => { console.log("clnd up")})
+
+        // chaining promise
+        // const uobj = new Promise((resolve,reject) =>{
+        // let num = 10
+        // resolve(num)
+        // }).then(
+        // (value) => {
+        // console.log(value);
+        // return value + 10;
+        // }
+        // ).then(
+        // (value) => { console.log(value)}
+        // )
+
+        //  promise examle 
+        console.log("start")
+        function getName(name) {
+            return new Promise((resolve,reject) => {
+                setTimeout(() => {
+                    console.log("inside timeout function")
+                    resolve(name);
+                }, 3000);
+            })
+        }
+
+        function getHobbies(name, callback) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("inside  hoobies timeout function")
+                    resolve(['cricket', 'basketball', 'tennis']);
+                }, 2000);
+            });
+        }
+
+        // getName('azhar')
+        // .then(nm => getHobbies(nm))
+        // .then(hobby => console.log(hobby))
+        // console.log("end")
+
+        // async and await with error handling @try and catch
+        
+        async function showHobby() {
+            try{                                         
+            const nm = await getName('azhar')
+            const hobby = await getHobbies(nm)
+            console.log(hobby)
+        } catch{
+            console.log("error could not catch hobbies")
+        }
+        }
+        showHobby()
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
